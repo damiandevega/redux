@@ -7,44 +7,52 @@ export const DELETE_RESULT = 'DELETE_RESULT';
 
 export const increment = () => {
   return {
-    type: INCREMENT
-  }
-}
+    type: INCREMENT,
+  };
+};
 
 export const decrement = () => {
   return {
-    type: DECREMENT
-  }
-}
+    type: DECREMENT,
+  };
+};
 
 export const add = (value) => {
   return {
     type: ADD,
     payload: {
-      value: value
-    }
-  }
-}
+      value: value,
+    },
+  };
+};
 
 export const subtract = (value) => {
   return {
     type: SUBTRACT,
     payload: {
-      value: value
-    }
-  }
-}
+      value: value,
+    },
+  };
+};
 
-export const storeResult = (result) => {
+export const saveResult = (result) => {
   return {
     type: STORE_RESULT,
-    result: result
-  }
-}
+    result: result,
+  };
+};
+
+export const storeResult = (result) => {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(saveResult(result));
+    }, 2000);
+  };
+};
 
 export const deleteResult = (resultElId) => {
   return {
     type: DELETE_RESULT,
-    resultElId: resultElId
-  }
-}
+    resultElId: resultElId,
+  };
+};
